@@ -19,22 +19,22 @@ public class UrlService {
         this.urlRepository = urlRepository;
     }
 
-    @Transactional()
+    @Transactional
     public String shortenUrl (String longUrl) {
         // Generate shortUrl
         String shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
 
-        // If shortUrl already exists in DB then handle collision
+        // fetch longUrl from DB, `null` if not exists
         Optional<String> longUrlInRecord = urlRepository.findLongUrlByShortUrl(shortUrl);
 
         // collision handling:
         if (longUrlInRecord.isPresent()) {
 
             // if shortUrl and longUrl match, return same shortUrl
-            if (longUrlInRecord.toString().equals(longUrl))
+            if (longUrlInRecord.equals(Optional.of(longUrl)))
                 return shortUrl;
 
-                // if shortUrl matches but not longUrl, then re-encode
+            // if shortUrl matches but not longUrl, then re-encode
             else
                 shortenUrl(longUrl);
         }
