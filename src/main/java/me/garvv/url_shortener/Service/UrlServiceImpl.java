@@ -1,11 +1,13 @@
 package me.garvv.url_shortener.Service;
 
 import jakarta.transaction.Transactional;
+import me.garvv.url_shortener.DTO.UrlRedirectionResponseDTO;
 import me.garvv.url_shortener.DTO.UrlShortenResponseDTO;
 import me.garvv.url_shortener.Model.Url;
 import me.garvv.url_shortener.Repository.UrlRepository;
 import me.garvv.url_shortener.Utils.Base62;
 import me.garvv.url_shortener.Utils.SecureRandomNumberGenerator;
+import me.garvv.url_shortener.exceptions.UrlNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,20 +25,16 @@ public class UrlServiceImpl implements UrlService {
     }
 
     @Transactional
-    public ResponseEntity<UrlShortenResponseDTO> createNewShortUrl (String longUrl) {
+    public UrlShortenResponseDTO createNewShortUrl (String longUrl) {
         // Step 1: If 'longUrl' already exists in DB
             // return 'shortUrl' corresponding to the 'longUrl'
         if (urlRepository.existsByLongUrl(longUrl)) {
             String existingShortUrl = urlRepository.findShortUrlByLongUrl(longUrl);
-            UrlShortenResponseDTO resDto = new UrlShortenResponseDTO(existingShortUrl);
-            return ResponseEntity
-                    .status(HttpStatus.CREATED)
-                    .body(resDto);
+            return new UrlShortenResponseDTO(existingShortUrl);
         }
 
         // Step 2: Generate 'shortUrl' by random integer and encoding
         String shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
-        System.out.println(shortUrl);
 
         // Step 3: Save the generated 'shortUrl', 'longUrl' to the DB
         Url url = new Url();
@@ -45,10 +43,15 @@ public class UrlServiceImpl implements UrlService {
         url.setCreatedAt(LocalDateTime.now());
         urlRepository.save(url);
 
-        UrlShortenResponseDTO response = new UrlShortenResponseDTO(url.getShortUrl());
+        return new UrlShortenResponseDTO(url.getShortUrl());
+    }
 
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(response);
+    @Transactional
+    public UrlRedirectionResponseDTO getLongUrl (String shortUrl) {
+        String longUrl = urlRepository
+                .findLongUrlByShortUrl(shortUrl)
+                .orElseThrow(() -> new UrlNotFoundException("URL not found"));
+
+        return new UrlRedirectionResponseDTO(shortUrl, longUrl);
     }
 }
