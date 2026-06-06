@@ -1,16 +1,17 @@
 package me.garvv.url_shortener.Controller;
 
 import jakarta.validation.Valid;
+import me.garvv.url_shortener.DTO.UrlRedirectionRequestDTO;
+import me.garvv.url_shortener.DTO.UrlRedirectionResponseDTO;
 import me.garvv.url_shortener.DTO.UrlShortenRequestDTO;
 import me.garvv.url_shortener.DTO.UrlShortenResponseDTO;
 import me.garvv.url_shortener.Service.UrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/url")
@@ -20,7 +21,25 @@ public class UrlController {
     private UrlService urlService;
 
     @PostMapping("/shorten")
-    public ResponseEntity<UrlShortenResponseDTO> shorten(@Valid @RequestBody UrlShortenRequestDTO request) {
-        return urlService.createNewShortUrl(request.longUrl());
+    public ResponseEntity<UrlShortenResponseDTO> createShortUrl(@Valid @RequestBody UrlShortenRequestDTO request) {
+        UrlShortenResponseDTO responseDTO = urlService.createNewShortUrl(request.longUrl());
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(responseDTO);
+    }
+
+    @GetMapping("/{shortUrl}")
+    public ResponseEntity<UrlRedirectionResponseDTO> getLongUrl(@Valid @PathVariable String shortUrl) {
+        String longUrl = urlService
+                .getLongUrl(shortUrl)
+                .longUrl();
+
+        URI redirectionURI = URI.create(longUrl);
+
+        return ResponseEntity
+                .status(HttpStatus.FOUND)
+                .location(redirectionURI)
+                .build();
     }
 }
