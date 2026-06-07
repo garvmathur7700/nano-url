@@ -7,13 +7,11 @@ import me.garvv.url_shortener.Model.Url;
 import me.garvv.url_shortener.Repository.UrlRepository;
 import me.garvv.url_shortener.Utils.Base62;
 import me.garvv.url_shortener.Utils.SecureRandomNumberGenerator;
+import me.garvv.url_shortener.Utils.UrlUtils;
 import me.garvv.url_shortener.exceptions.UrlNotFoundException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 public class UrlServiceImpl implements UrlService {
@@ -26,19 +24,27 @@ public class UrlServiceImpl implements UrlService {
 
     @Transactional
     public UrlShortenResponseDTO createNewShortUrl (String longUrl) {
-        // Step 1: If 'longUrl' already exists in DB
-            // return 'shortUrl' corresponding to the 'longUrl'
-        if (urlRepository.existsByLongUrl(longUrl)) {
-            String existingShortUrl = urlRepository.findShortUrlByLongUrl(longUrl);
+        // Step 1: Sanitize 'longUrl'
+        String sanitizedLongUrl = UrlUtils.sanitize(longUrl);
+
+        // Step 2: Validate 'sanitizedLongUrl'
+        if (!UrlUtils.validate(sanitizedLongUrl))
+            throw new IllegalArgumentException("Not a valid URL. " +
+                    "URLs must begin with 'http' or 'https'");
+
+        // Step 1: If 'sanitizedLongUrl' already exists in DB
+            // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
+        if (urlRepository.existsByLongUrl(sanitizedLongUrl)) {
+            String existingShortUrl = urlRepository.findShortUrlByLongUrl(sanitizedLongUrl);
             return new UrlShortenResponseDTO(existingShortUrl);
         }
 
         // Step 2: Generate 'shortUrl' by random integer and encoding
         String shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
 
-        // Step 3: Save the generated 'shortUrl', 'longUrl' to the DB
+        // Step 3: Save the generated 'shortUrl', 'sanitizedLongUrl' to the DB
         Url url = new Url();
-        url.setLongUrl(longUrl);
+        url.setLongUrl(sanitizedLongUrl);
         url.setShortUrl(shortUrl);
         url.setCreatedAt(LocalDateTime.now());
         urlRepository.save(url);
