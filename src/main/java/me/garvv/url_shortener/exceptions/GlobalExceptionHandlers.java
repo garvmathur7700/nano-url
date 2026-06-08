@@ -15,4 +15,11 @@ public class GlobalExceptionHandlers extends ResponseEntityExceptionHandler {
         problemDetail.setTitle("URL not found");
         return problemDetail;
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ProblemDetail handleIllegalUrl(IllegalArgumentException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+        problemDetail.setTitle("Invalid URL");
+        return problemDetail;
+    }
 }
