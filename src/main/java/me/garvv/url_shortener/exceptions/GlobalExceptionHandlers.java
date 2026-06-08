@@ -22,4 +22,11 @@ public class GlobalExceptionHandlers extends ResponseEntityExceptionHandler {
         problemDetail.setTitle("Invalid URL");
         return problemDetail;
     }
+
+    @ExceptionHandler(RequestTimedOutException.class)
+    public ProblemDetail handleRequestTimedOut(RequestTimedOutException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+        problemDetail.setTitle("Internal Database Requests Timed Out");
+        return problemDetail;
+    }
 }

@@ -8,6 +8,7 @@ import me.garvv.url_shortener.Repository.UrlRepository;
 import me.garvv.url_shortener.Utils.Base62;
 import me.garvv.url_shortener.Utils.SecureRandomNumberGenerator;
 import me.garvv.url_shortener.Utils.UrlUtils;
+import me.garvv.url_shortener.exceptions.RequestTimedOutException;
 import me.garvv.url_shortener.exceptions.UrlNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,7 @@ public class UrlServiceImpl implements UrlService {
         // Step 2: Validate 'sanitizedLongUrl'
         if (!UrlUtils.validate(sanitizedLongUrl))
             throw new IllegalArgumentException("Not a valid URL.");
+
         // Step 3: If 'sanitizedLongUrl' already exists in DB
             // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
         if (urlRepository.existsByLongUrl(sanitizedLongUrl)) {
@@ -38,7 +40,18 @@ public class UrlServiceImpl implements UrlService {
         }
 
         // Step 4: Generate 'shortUrl' by random integer and encoding
-        String shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
+        // Keep generating 'shortUrl' if it is found in DB, in other words
+        // keep generating 'shortUrl' while it exists in DB
+        String shortUrl;
+        int urlRegenerationCounter = 0;
+        int maxTries = 5;
+        do {
+            shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
+            urlRegenerationCounter++;
+        } while (urlRepository.existsByShortUrl(shortUrl) && urlRegenerationCounter < maxTries);
+
+        if (urlRegenerationCounter == maxTries)
+            throw new RequestTimedOutException("Database operation failed after " + urlRegenerationCounter + " tries!");
 
         // Step 5: Save the generated 'shortUrl', 'sanitizedLongUrl' to the DB
         Url url = new Url();
