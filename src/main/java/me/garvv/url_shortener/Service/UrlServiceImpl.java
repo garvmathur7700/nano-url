@@ -29,20 +29,18 @@ public class UrlServiceImpl implements UrlService {
 
         // Step 2: Validate 'sanitizedLongUrl'
         if (!UrlUtils.validate(sanitizedLongUrl))
-            throw new IllegalArgumentException("Not a valid URL. " +
-                    "URLs must begin with 'http' or 'https'");
-
-        // Step 1: If 'sanitizedLongUrl' already exists in DB
+            throw new IllegalArgumentException("Not a valid URL.");
+        // Step 3: If 'sanitizedLongUrl' already exists in DB
             // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
         if (urlRepository.existsByLongUrl(sanitizedLongUrl)) {
             String existingShortUrl = urlRepository.findShortUrlByLongUrl(sanitizedLongUrl);
             return new UrlShortenResponseDTO(existingShortUrl);
         }
 
-        // Step 2: Generate 'shortUrl' by random integer and encoding
+        // Step 4: Generate 'shortUrl' by random integer and encoding
         String shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
 
-        // Step 3: Save the generated 'shortUrl', 'sanitizedLongUrl' to the DB
+        // Step 5: Save the generated 'shortUrl', 'sanitizedLongUrl' to the DB
         Url url = new Url();
         url.setLongUrl(sanitizedLongUrl);
         url.setShortUrl(shortUrl);
