@@ -12,10 +12,10 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uid;
 
-    @Column(name = "longUrl")
+    @Column(name = "longUrl", unique = true)
     private String longUrl;
 
-    @Column(name = "shortUrl")
+    @Column(name = "shortUrl", unique = true)
     private String shortUrl;
 
     @Column(name = "createdAt")
