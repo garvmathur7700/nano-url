@@ -1,4 +1,0 @@
-Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,Received KB/sec,Sent KB/sec
-POST /api/url/shorten,21179,138,141,215,229,268,3,533,0.000%,351.34373,66.56,90.24
-GET /api/url/{shortUrl},21120,122,127,193,206,255,1,561,0.000%,350.60343,65.90,55.80
-TOTAL,42299,130,135,205,220,261,1,561,0.000%,701.70869,132.42,146.00
