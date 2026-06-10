@@ -19,7 +19,7 @@ public class UrlUtils {
             cleanUrl = cleanUrl.replaceFirst("://", "://www.");
 
         // Step 3: Return sanitized 'url'
-        return cleanUrl;
+        return cleanUrl.toLowerCase();
     }
 
     public static Boolean validate (String url) {
