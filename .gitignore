@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### JMeter ###
+/tests/performance/**
+!/tests/performance/
+!/tests/performance/nano-url-load-test.jmx
