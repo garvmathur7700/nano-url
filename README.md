@@ -20,6 +20,17 @@
 - [x] Swap out H2 with MySQL
 - [x] Fix `SecureRandom` way of generating short URLs
 
+# MySQL Database Schema:
+
+CREATE TABLE url (
+    uid INT PRIMARY KEY AUTO_INCREMENT, 
+    short_url VARCHAR(6) NOT NULL UNIQUE, 
+    long_url TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    UNIQUE INDEX idx_unique_long_url (long_url(255)), 
+    INDEX idx_unique_short_url (short_url)
+);
+
 # Metrics
 
 - 10th June 2026
@@ -84,3 +95,8 @@
 | **Total** | **251340** | **0** | **0.00%** | **22.85** | **0** | **222** | **23.00** | **31.00** | **38.00** | **51.00** | **2094.87** | **395.25** | **435.74** |
 | GET /api/url/{shortUrl} | 125655 | 0 | 0.00% | 19.48 | 0 | 210 | 19.00 | 26.00 | 34.00 | 47.00 | 1047.76 | 196.89 | 166.77 |
 | POST /api/url/shorten | 125685 | 0 | 0.00% | 26.22 | 2 | 222 | 25.00 | 35.00 | 43.00 | 61.00 | 1047.56 | 198.45 | 269.05 |
+
+    - Threads: 60
+    - Ramp-up period: 10 seconds
+    - Duration: 120 seconds
+

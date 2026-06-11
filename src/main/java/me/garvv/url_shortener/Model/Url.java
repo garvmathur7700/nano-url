@@ -12,13 +12,13 @@ public class Url {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long uid;
 
-    @Column(name = "longUrl", unique = true)
+    @Column(name = "longUrl", unique = true, nullable = false)
     private String longUrl;
 
-    @Column(name = "shortUrl", unique = true)
+    @Column(name = "shortUrl", unique = true, nullable = false)
     private String shortUrl;
 
-    @Column(name = "createdAt")
+    @Column(name = "createdAt", nullable = false)
     private LocalDateTime createdAt;
 
     public Url() {}
