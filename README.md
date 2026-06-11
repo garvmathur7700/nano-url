@@ -22,7 +22,7 @@
 
 # MySQL Database Schema:
 
-```
+```sql
 CREATE TABLE url (
     uid INT PRIMARY KEY AUTO_INCREMENT, 
     short_url VARCHAR(6) NOT NULL UNIQUE, 
