@@ -20,6 +20,4 @@ public interface UrlRepository extends JpaRepository<Url, Long> {
 
     @Query("SELECT u.longUrl FROM Url u WHERE u.shortUrl = :shortUrl")
     Optional<String> findLongUrlByShortUrl(@Param("shortUrl") String shortUrl);
-
-
 }
