@@ -16,7 +16,8 @@ public class UrlRepositoryTests {
     UrlRepository urlRepository;
 
     @Test
-    public void existsByLongUrlTest() {
+    public void UrlRepository_ExistsByLongUrl_ReturnsBoolean() {
+        // Arrange
         String longUrl = "https://www.google.com";
         String shortUrl = "abcdef";
 
@@ -24,15 +25,20 @@ public class UrlRepositoryTests {
         url.setLongUrl(longUrl);
         url.setShortUrl(shortUrl);
         url.setCreatedAt(LocalDateTime.now());
-
         urlRepository.save(url);
 
-        Assertions.assertEquals(true, urlRepository.existsByLongUrl(longUrl));
-        Assertions.assertEquals(false, urlRepository.existsByLongUrl("abc"));
+        // Act
+        boolean resultForValidLongUrl = urlRepository.existsByLongUrl(longUrl);
+        boolean resultForInvalidLongUrl = urlRepository.existsByLongUrl("abc");
+
+        // Assert
+        Assertions.assertTrue(resultForValidLongUrl);
+        Assertions.assertFalse(resultForInvalidLongUrl);
     }
 
     @Test
-    public void existsByShortUrlTest() {
+    public void UrlRepository_ExistsByShortUrl_ReturnsBoolean() {
+        // Arrange
         String longUrl = "https://www.google.com";
         String shortUrl = "abcdef";
 
@@ -40,15 +46,20 @@ public class UrlRepositoryTests {
         url.setLongUrl(longUrl);
         url.setShortUrl(shortUrl);
         url.setCreatedAt(LocalDateTime.now());
-
         urlRepository.save(url);
 
-        Assertions.assertEquals(true, urlRepository.existsByShortUrl(shortUrl));
-        Assertions.assertEquals(false, urlRepository.existsByShortUrl("abc"));
+        // Act
+        boolean resultForValidLongUrl = urlRepository.existsByShortUrl(shortUrl);
+        boolean resultForInvalidLongUrl = urlRepository.existsByShortUrl("abc");
+
+        // Assert
+        Assertions.assertTrue(resultForValidLongUrl);
+        Assertions.assertFalse(resultForInvalidLongUrl);
     }
 
     @Test
-    public void findShortUrlByLongUrlTest() {
+    public void UrlRepository_FindShortUrlByLongUrl_ReturnsShortUrl() {
+        // Arrange
         String longUrl = "https://www.google.com";
         String shortUrl = "abcdef";
 
@@ -56,16 +67,21 @@ public class UrlRepositoryTests {
         url.setLongUrl(longUrl);
         url.setShortUrl(shortUrl);
         url.setCreatedAt(LocalDateTime.now());
-
         urlRepository.save(url);
 
-        Assertions.assertEquals(shortUrl, urlRepository.findShortUrlByLongUrl(longUrl));
-        Assertions.assertNull(urlRepository.findShortUrlByLongUrl("abc"));
+        // Act
+        String resultForValidLongUrl = urlRepository.findShortUrlByLongUrl(longUrl);
+        String resultForInvalidLongUrl = urlRepository.findShortUrlByLongUrl("abc");
+
+        // Assert
+        Assertions.assertEquals(shortUrl, resultForValidLongUrl);
+        Assertions.assertNull(resultForInvalidLongUrl);
     }
 
 
     @Test
-    public void findLongUrlByShortUrlTest() {
+    public void UrlRepository_FindLongUrlByShortUrl_ReturnsLongUrl() {
+        // Arrange
         String longUrl = "https://www.google.com";
         String shortUrl = "abcdef";
 
@@ -73,10 +89,14 @@ public class UrlRepositoryTests {
         url.setLongUrl(longUrl);
         url.setShortUrl(shortUrl);
         url.setCreatedAt(LocalDateTime.now());
-
         urlRepository.save(url);
 
-        Assertions.assertEquals(Optional.of(longUrl), urlRepository.findLongUrlByShortUrl(shortUrl));
-        Assertions.assertEquals(Optional.empty(), urlRepository.findLongUrlByShortUrl("abc"));
+        // Act
+        Optional<String> resultForValidShortUrl = urlRepository.findLongUrlByShortUrl(shortUrl);
+        Optional<String> resultForInvalidShortUrl = urlRepository.findLongUrlByShortUrl("abc");
+
+        // Assert
+        Assertions.assertEquals(Optional.of(longUrl), resultForValidShortUrl);
+        Assertions.assertEquals(Optional.empty(), resultForInvalidShortUrl);
     }
 }
