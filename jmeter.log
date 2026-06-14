@@ -1,0 +1,376 @@
+2026-06-14 15:04:29,669 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-06-14 15:04:29,683 INFO o.a.j.JMeter: Loading user properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/user.properties
+2026-06-14 15:04:29,684 INFO o.a.j.JMeter: Loading system properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/system.properties
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: Version 5.6.3
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: java.version=21.0.11
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: os.name=Mac OS X
+2026-06-14 15:04:29,687 INFO o.a.j.JMeter: os.arch=aarch64
+2026-06-14 15:04:29,688 INFO o.a.j.JMeter: os.version=15.5
+2026-06-14 15:04:29,688 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-06-14 15:04:29,688 INFO o.a.j.JMeter: java.awt.headless=true
+2026-06-14 15:04:29,688 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-06-14 15:04:29,688 INFO o.a.j.JMeter: Available Processors =10
+2026-06-14 15:04:29,693 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-06-14 15:04:29,694 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-06-14 15:04:29,694 INFO o.a.j.JMeter: JMeterHome=/opt/homebrew/Cellar/jmeter/5.6.3/libexec
+2026-06-14 15:04:29,694 INFO o.a.j.JMeter: user.dir  =/Users/garvmathur/Coding/nano-url
+2026-06-14 15:04:29,694 INFO o.a.j.JMeter: PWD       =/Users/garvmathur/Coding/nano-url
+2026-06-14 15:04:29,695 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: Garvs-MacBook-Air.local FullName: localhost
+2026-06-14 15:04:29,702 INFO o.a.j.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'/Users/garvmathur/Coding/nano-url/tests/performance/report'
+2026-06-14 15:04:29,704 INFO o.a.j.s.FileServer: Default base='/Users/garvmathur/Coding/nano-url'
+2026-06-14 15:04:29,705 INFO o.a.j.s.FileServer: Set new base='/Users/garvmathur/Coding/nano-url/tests/performance'
+2026-06-14 15:04:29,805 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-06-14 15:04:29,823 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-06-14 15:04:29,825 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-06-14 15:04:29,827 INFO o.a.j.s.SaveService: Loading file: tests/performance/nano-url-load-test.jmx
+2026-06-14 15:04:29,860 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-06-14 15:04:29,861 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-06-14 15:04:29,861 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-06-14 15:04:29,861 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-06-14 15:04:29,861 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-06-14 15:04:29,861 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-06-14 15:04:29,869 INFO o.a.j.JMeter: Creating summariser <summary>
+2026-06-14 15:04:29,876 INFO o.a.j.r.d.ReportGenerator: ReportGenerator will use for Parsing the separator: ','
+2026-06-14 15:04:29,876 INFO o.a.j.r.d.ReportGenerator: Will generate report at end of test from  results file: tests/performance/results.jtl
+2026-06-14 15:04:29,876 INFO o.a.j.r.d.ReportGenerator: Reading report generator properties from: /opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/reportgenerator.properties
+2026-06-14 15:04:29,876 INFO o.a.j.r.d.ReportGenerator: Merging with JMeter properties
+2026-06-14 15:04:29,879 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.temp_dir' not found, using default value 'temp' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.apdex_per_transaction' not found, using default value 'null' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: apdex_per_transaction is empty, not APDEX per transaction customization
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.sample_filter' not found, using default value 'null' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.report_title' not found, using default value 'null' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.start_date' not found, using default value 'null' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.end_date' not found, using default value 'null' instead.
+2026-06-14 15:04:29,880 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.date_format' not found, using default value 'null' instead.
+2026-06-14 15:04:29,881 INFO o.a.j.r.c.ReportGeneratorConfiguration: Will use date range start date: null, end date: null
+2026-06-14 15:04:29,883 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.totalTPS.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,883 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,883 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentilesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.connectTimeOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,884 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.filters_only_sample_series' not found, using default value 'true' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.series_filter' not found, using default value '' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.show_controllers_only' not found, using default value 'false' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.filters_only_sample_series' not found, using default value 'true' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.series_filter' not found, using default value '' instead.
+2026-06-14 15:04:29,885 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.show_controllers_only' not found, using default value 'false' instead.
+2026-06-14 15:04:29,892 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-06-14 15:04:29,893 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-06-14 15:04:29,893 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-06-14 15:04:29,895 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-06-14 15:04:29,895 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-06-14 15:04:29,929 INFO o.a.j.r.ClassFinder: Will scan jar /opt/homebrew/Cellar/jmeter/5.6.3/libexec/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2026-06-14 15:04:29,985 INFO o.a.j.JMeter: Running test (1781429669985)
+2026-06-14 15:04:29,995 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2026-06-14 15:04:29,995 INFO o.a.j.e.StandardJMeterEngine: Starting 80 threads for group Thread Group.
+2026-06-14 15:04:29,995 INFO o.a.j.e.StandardJMeterEngine: Thread will start next loop on error
+2026-06-14 15:04:29,995 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=80 ramp-up=10 delayedStart=false
+2026-06-14 15:04:29,998 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2026-06-14 15:04:30,009 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = Garvs-MacBook-Air.local
+2026-06-14 15:04:30,013 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-06-14 15:04:30,014 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-06-14 15:04:30,014 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-06-14 15:04:30,014 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-06-14 15:04:30,014 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-06-14 15:04:30,014 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-06-14 15:04:30,015 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-06-14 15:04:30,126 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2026-06-14 15:04:30,251 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2026-06-14 15:04:30,314 INFO o.a.j.r.Summariser: summary +      1 in 00:00:00 =    3.0/s Avg:   244 Min:   244 Max:   244 Err:     0 (0.00%) Active: 3 Started: 3 Finished: 0
+2026-06-14 15:04:30,372 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2026-06-14 15:04:30,497 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2026-06-14 15:04:30,625 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2026-06-14 15:04:30,746 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2026-06-14 15:04:30,871 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2026-06-14 15:04:30,997 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2026-06-14 15:04:31,121 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2026-06-14 15:04:31,245 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-11
+2026-06-14 15:04:31,372 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-12
+2026-06-14 15:04:31,499 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-13
+2026-06-14 15:04:31,621 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-14
+2026-06-14 15:04:31,746 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-15
+2026-06-14 15:04:31,872 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-16
+2026-06-14 15:04:32,000 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-17
+2026-06-14 15:04:32,120 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-18
+2026-06-14 15:04:32,245 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-19
+2026-06-14 15:04:32,371 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-20
+2026-06-14 15:04:32,501 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-21
+2026-06-14 15:04:32,622 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-22
+2026-06-14 15:04:32,747 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-23
+2026-06-14 15:04:32,871 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-24
+2026-06-14 15:04:33,001 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-25
+2026-06-14 15:04:33,123 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-26
+2026-06-14 15:04:33,250 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-27
+2026-06-14 15:04:33,370 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-28
+2026-06-14 15:04:33,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-29
+2026-06-14 15:04:33,623 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-30
+2026-06-14 15:04:33,746 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-31
+2026-06-14 15:04:33,872 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-32
+2026-06-14 15:04:33,998 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-33
+2026-06-14 15:04:34,122 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-34
+2026-06-14 15:04:34,246 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-35
+2026-06-14 15:04:34,371 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-36
+2026-06-14 15:04:34,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-37
+2026-06-14 15:04:34,621 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-38
+2026-06-14 15:04:34,745 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-39
+2026-06-14 15:04:34,872 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-40
+2026-06-14 15:04:34,996 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-41
+2026-06-14 15:04:35,120 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-42
+2026-06-14 15:04:35,246 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-43
+2026-06-14 15:04:35,371 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-44
+2026-06-14 15:04:35,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-45
+2026-06-14 15:04:35,621 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-46
+2026-06-14 15:04:35,747 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-47
+2026-06-14 15:04:35,873 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-48
+2026-06-14 15:04:35,998 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-49
+2026-06-14 15:04:36,122 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-50
+2026-06-14 15:04:36,248 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-51
+2026-06-14 15:04:36,373 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-52
+2026-06-14 15:04:36,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-53
+2026-06-14 15:04:36,622 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-54
+2026-06-14 15:04:36,746 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-55
+2026-06-14 15:04:36,873 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-56
+2026-06-14 15:04:36,997 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-57
+2026-06-14 15:04:37,120 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-58
+2026-06-14 15:04:37,247 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-59
+2026-06-14 15:04:37,371 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-60
+2026-06-14 15:04:37,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-61
+2026-06-14 15:04:37,620 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-62
+2026-06-14 15:04:37,745 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-63
+2026-06-14 15:04:37,872 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-64
+2026-06-14 15:04:38,000 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-65
+2026-06-14 15:04:38,120 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-66
+2026-06-14 15:04:38,246 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-67
+2026-06-14 15:04:38,371 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-68
+2026-06-14 15:04:38,497 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-69
+2026-06-14 15:04:38,621 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-70
+2026-06-14 15:04:38,747 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-71
+2026-06-14 15:04:38,871 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-72
+2026-06-14 15:04:38,997 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-73
+2026-06-14 15:04:39,121 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-74
+2026-06-14 15:04:39,245 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-75
+2026-06-14 15:04:39,373 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-76
+2026-06-14 15:04:39,496 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-77
+2026-06-14 15:04:39,620 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-78
+2026-06-14 15:04:39,745 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-79
+2026-06-14 15:04:39,876 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-80
+2026-06-14 15:05:00,001 INFO o.a.j.r.Summariser: summary +  58787 in 00:00:30 = 1980.2/s Avg:    34 Min:     1 Max:   199 Err:     0 (0.00%) Active: 80 Started: 80 Finished: 0
+2026-06-14 15:05:00,003 INFO o.a.j.r.Summariser: summary =  58788 in 00:00:30 = 1958.6/s Avg:    34 Min:     1 Max:   244 Err:     0 (0.00%)
+2026-06-14 15:05:30,000 INFO o.a.j.r.Summariser: summary +  60837 in 00:00:30 = 2027.9/s Avg:    39 Min:     1 Max:   302 Err:     0 (0.00%) Active: 80 Started: 80 Finished: 0
+2026-06-14 15:05:30,002 INFO o.a.j.r.Summariser: summary = 119625 in 00:01:00 = 1993.3/s Avg:    36 Min:     1 Max:   302 Err:     0 (0.00%)
+2026-06-14 15:06:00,000 INFO o.a.j.r.Summariser: summary +  60029 in 00:00:30 = 2001.0/s Avg:    39 Min:     0 Max:   232 Err:     0 (0.00%) Active: 80 Started: 80 Finished: 0
+2026-06-14 15:06:00,003 INFO o.a.j.r.Summariser: summary = 179654 in 00:01:30 = 1995.8/s Avg:    37 Min:     0 Max:   302 Err:     0 (0.00%)
+2026-06-14 15:06:29,999 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-7
+2026-06-14 15:06:30,002 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-21
+2026-06-14 15:06:30,002 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-1
+2026-06-14 15:06:30,002 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-21
+2026-06-14 15:06:30,001 INFO o.a.j.r.Summariser: summary +  58722 in 00:00:30 = 1957.3/s Avg:    40 Min:     0 Max:   264 Err:     0 (0.00%) Active: 80 Started: 80 Finished: 0
+2026-06-14 15:06:30,002 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2026-06-14 15:06:30,002 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2026-06-14 15:06:30,002 INFO o.a.j.r.Summariser: summary = 238376 in 00:02:00 = 1986.2/s Avg:    38 Min:     0 Max:   302 Err:     0 (0.00%)
+2026-06-14 15:06:30,008 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-49
+2026-06-14 15:06:30,008 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-49
+2026-06-14 15:06:30,010 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-23
+2026-06-14 15:06:30,010 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-23
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-60
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-61
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-5
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-32
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-60
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-30
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-30
+2026-06-14 15:06:30,015 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-57
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-28
+2026-06-14 15:06:30,015 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-57
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-34
+2026-06-14 15:06:30,015 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-61
+2026-06-14 15:06:30,015 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-28
+2026-06-14 15:06:30,014 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-32
+2026-06-14 15:06:30,015 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-34
+2026-06-14 15:06:30,016 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-25
+2026-06-14 15:06:30,016 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-68
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-63
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-25
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-20
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-68
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-63
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-20
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-55
+2026-06-14 15:06:30,017 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-55
+2026-06-14 15:06:30,018 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-45
+2026-06-14 15:06:30,018 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-45
+2026-06-14 15:06:30,018 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-48
+2026-06-14 15:06:30,018 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-4
+2026-06-14 15:06:30,019 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-48
+2026-06-14 15:06:30,019 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2026-06-14 15:06:30,019 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-46
+2026-06-14 15:06:30,019 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-46
+2026-06-14 15:06:30,020 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-53
+2026-06-14 15:06:30,020 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-53
+2026-06-14 15:06:30,020 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-9
+2026-06-14 15:06:30,020 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-47
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-24
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-74
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-47
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-24
+2026-06-14 15:06:30,021 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-74
+2026-06-14 15:06:30,022 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-75
+2026-06-14 15:06:30,022 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-75
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-31
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-31
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-33
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-72
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-36
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-72
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-2
+2026-06-14 15:06:30,023 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-33
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-36
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-59
+2026-06-14 15:06:30,024 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-59
+2026-06-14 15:06:30,025 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-11
+2026-06-14 15:06:30,025 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-11
+2026-06-14 15:06:30,027 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-44
+2026-06-14 15:06:30,027 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-13
+2026-06-14 15:06:30,027 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-62
+2026-06-14 15:06:30,028 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-44
+2026-06-14 15:06:30,028 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-13
+2026-06-14 15:06:30,028 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-62
+2026-06-14 15:06:30,029 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-41
+2026-06-14 15:06:30,029 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-41
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-35
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-14
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-10
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-35
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-14
+2026-06-14 15:06:30,031 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-40
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-3
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-77
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-77
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-37
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-37
+2026-06-14 15:06:30,034 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-40
+2026-06-14 15:06:30,035 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-19
+2026-06-14 15:06:30,035 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-19
+2026-06-14 15:06:30,035 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-73
+2026-06-14 15:06:30,035 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-17
+2026-06-14 15:06:30,035 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-43
+2026-06-14 15:06:30,036 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-73
+2026-06-14 15:06:30,036 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-43
+2026-06-14 15:06:30,036 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-17
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-18
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-51
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-80
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-51
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-18
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-79
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-79
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-15
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-65
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-15
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-6
+2026-06-14 15:06:30,038 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-8
+2026-06-14 15:06:30,038 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-65
+2026-06-14 15:06:30,037 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-80
+2026-06-14 15:06:30,038 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-58
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-58
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-50
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-50
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-78
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-78
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-56
+2026-06-14 15:06:30,039 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-56
+2026-06-14 15:06:30,040 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-71
+2026-06-14 15:06:30,040 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-71
+2026-06-14 15:06:30,041 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-54
+2026-06-14 15:06:30,041 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-54
+2026-06-14 15:06:30,041 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-66
+2026-06-14 15:06:30,041 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-66
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-69
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-69
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-26
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-26
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-38
+2026-06-14 15:06:30,042 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-38
+2026-06-14 15:06:30,043 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-76
+2026-06-14 15:06:30,043 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-76
+2026-06-14 15:06:30,043 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-22
+2026-06-14 15:06:30,043 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-22
+2026-06-14 15:06:30,044 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-16
+2026-06-14 15:06:30,044 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-16
+2026-06-14 15:06:30,045 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-29
+2026-06-14 15:06:30,045 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-29
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-39
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-12
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-52
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-12
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-39
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-52
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-27
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-64
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-27
+2026-06-14 15:06:30,048 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-64
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-42
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-70
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Thread Group 1-67
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-70
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-42
+2026-06-14 15:06:30,051 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-67
+2026-06-14 15:06:30,051 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-06-14 15:06:30,052 INFO o.a.j.r.Summariser: summary +     81 in 00:00:00 = 1620.0/s Avg:    61 Min:     2 Max:    99 Err:     0 (0.00%) Active: 0 Started: 80 Finished: 80
+2026-06-14 15:06:30,052 INFO o.a.j.r.Summariser: summary = 238457 in 00:02:00 = 1986.0/s Avg:    38 Min:     0 Max:   302 Err:     0 (0.00%)
+2026-06-14 15:06:30,052 INFO o.a.j.JMeter: Generating Dashboard
+2026-06-14 15:06:30,052 INFO o.a.j.r.d.ReportGenerator: Flushing result collector before report Generation
+2026-06-14 15:06:30,087 INFO o.a.j.r.p.NormalizerSampleConsumer: Using format, 'ms', to parse timeStamp field
+2026-06-14 15:06:32,596 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples
+2026-06-14 15:06:32,596 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples
+2026-06-14 15:06:32,598 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples
+2026-06-14 15:06:32,598 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples
+2026-06-14 15:06:32,608 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples
+2026-06-14 15:06:32,609 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.Top5ErrorsBySamplerConsumer#stopProducing(): top5ErrorsBySampler produced 0 samples
+2026-06-14 15:06:32,609 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples
+2026-06-14 15:06:32,609 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples
+2026-06-14 15:06:33,163 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples
+2026-06-14 15:06:33,170 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.SyntheticResponseTimeDistributionGraphConsumer#stopProducing(): syntheticResponseTimeDistribution produced 0 samples
+2026-06-14 15:06:33,170 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples
+2026-06-14 15:06:33,170 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples
+2026-06-14 15:06:33,655 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 1669199 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TotalTPSGraphConsumer#stopProducing(): totalTPS produced 0 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples
+2026-06-14 15:06:33,659 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples
+2026-06-14 15:06:33,660 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples
+2026-06-14 15:06:33,661 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesOverTimeGraphConsumer#stopProducing(): responseTimePercentilesOverTime produced 0 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ConnectTimeOverTimeGraphConsumer#stopProducing(): connectTimeOverTime produced 0 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 3576855 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): dateRangeFilter produced 715371 samples
+2026-06-14 15:06:33,663 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 238457 samples
+2026-06-14 15:06:33,664 INFO o.a.j.r.p.CsvFileSampleSource: produce(): 238457 samples produced in 3s 563 ms on channel 0
+2026-06-14 15:06:33,664 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'json' of className:'org.apache.jmeter.report.dashboard.JsonExporter'
+2026-06-14 15:06:33,713 INFO o.a.j.r.d.JsonExporter: Found data for consumer statisticsSummary in context
+2026-06-14 15:06:33,713 INFO o.a.j.r.d.JsonExporter: Creating statistics for overall
+2026-06-14 15:06:33,713 INFO o.a.j.r.d.JsonExporter: Creating statistics for other transactions
+2026-06-14 15:06:33,713 INFO o.a.j.r.d.JsonExporter: Checking output folder
+2026-06-14 15:06:33,714 INFO o.a.j.r.d.JsonExporter: Writing statistics JSON to /Users/garvmathur/Coding/nano-url/tests/performance/report/statistics.json
+2026-06-14 15:06:33,740 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter'
+2026-06-14 15:06:33,741 INFO o.a.j.r.d.HtmlTemplateExporter: Will generate dashboard in folder: /Users/garvmathur/Coding/nano-url/tests/performance/report
+2026-06-14 15:06:33,807 INFO o.a.j.r.d.HtmlTemplateExporter: Report will be generated in: /Users/garvmathur/Coding/nano-url/tests/performance/report, creating folder structure
+2026-06-14 15:06:33,808 INFO o.a.j.r.d.TemplateVisitor: Copying folder from '/opt/homebrew/Cellar/jmeter/5.6.3/libexec/bin/report-template' to '/Users/garvmathur/Coding/nano-url/tests/performance/report', got message: /Users/garvmathur/Coding/nano-url/tests/performance/report, found non empty folder with following content [/Users/garvmathur/Coding/nano-url/tests/performance/report/statistics.json], will be ignored
+2026-06-14 15:06:33,964 INFO o.a.j.JMeter: Dashboard generated
