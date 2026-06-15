@@ -37,3 +37,6 @@ build/
 !/tests/performance/
 !/tests/performance/nano-url-load-test.jmx
 jmeter.log
+
+### MacOS ###
+.DS_Store

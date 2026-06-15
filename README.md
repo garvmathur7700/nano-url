@@ -33,6 +33,62 @@ CREATE TABLE url (
 );
 ```
 
+# Project Structure:
+```
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── me/
+│   │   │       └── garvv/
+│   │   │           └── url_shortener/
+│   │   │               ├── Controller/
+│   │   │               │   └── UrlController.java
+│   │   │               ├── DTO/
+│   │   │               │   ├── UrlRedirectionRequestDTO.java
+│   │   │               │   ├── UrlRedirectionResponseDTO.java
+│   │   │               │   ├── UrlShortenRequestDTO.java
+│   │   │               │   └── UrlShortenResponseDTO.java
+│   │   │               ├── exceptions/
+│   │   │               │   ├── GlobalExceptionHandlers.java
+│   │   │               │   ├── RequestTimedOutException.java
+│   │   │               │   └── UrlNotFoundException.java
+│   │   │               ├── Model/
+│   │   │               │   └── Url.java
+│   │   │               ├── Repository/
+│   │   │               │   └── UrlRepository.java
+│   │   │               ├── Service/
+│   │   │               │   ├── UrlService.java
+│   │   │               │   └── UrlServiceImpl.java
+│   │   │               ├── Utils/
+│   │   │               │   ├── Base62.java
+│   │   │               │   ├── SecureRandomNumberGenerator.java
+│   │   │               │   └── UrlUtils.java
+│   │   │               └── UrlShortenerApplication.java
+│   │   └── resources/
+│   │       ├── application-dev.properties
+│   │       ├── application-prod.properties
+│   │       └── application.properties
+│   └── test/
+│       ├── java/
+│       │   └── me/
+│       │       └── garvv/
+│       │           └── url_shortener/
+│       │               ├── Repository/
+│       │               │   └── UrlRepositoryTests.java
+│       │               ├── Service/
+│       │               │   └── UrlServiceTests.java
+│       │               └── UrlShortenerApplicationTests.java
+│       └── resources/
+│           └── application.properties
+├── tests/
+│   ├── performance/
+│   │   └── nano-url-load-test.jmx
+├── pom.xml
+└── README.md
+```
+
+[![GitHubTree](https://img.shields.io/badge/GitHubTree-nano--url-blue?style=flat-square)](https://githubtree.mgks.dev/repo/garvmathur7700/nano-url/main/?ref=badge)
+
 # Metrics
 
 - 10th June 2026
