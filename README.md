@@ -2,9 +2,6 @@
 
 # To-Do:
 
-- [ ] Latency
-- [ ] Throughput
-- [ ] Error rate
 - [ ] Tests
 - [ ] Caching (Redis/Valkey)
 - [ ] Rate limiting
@@ -17,6 +14,9 @@
 - [ ] Separate services
 - [ ] Cloud deployment
 - [ ] Link expiration
+- [x] Latency
+- [x] Throughput
+- [x] Error rate
 - [x] Swap out H2 with MySQL
 - [x] Fix `SecureRandom` way of generating short URLs
 
