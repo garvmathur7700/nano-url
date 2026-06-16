@@ -18,13 +18,10 @@ import java.time.LocalDateTime;
 @Service
 public class UrlServiceImpl implements UrlService {
 
-    @Autowired
     private final UrlRepository urlRepository;
 
-    @Autowired
     private final SecureRandomNumberGenerator randomNumber;
 
-    @Autowired
     private final Base62 base62;
 
     public UrlServiceImpl(UrlRepository urlRepository, SecureRandomNumberGenerator randomNumber, Base62 base62) {
