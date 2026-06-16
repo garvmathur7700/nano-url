@@ -2,9 +2,6 @@
 
 # To-Do:
 
-- [ ] Latency
-- [ ] Throughput
-- [ ] Error rate
 - [ ] Tests
 - [ ] Caching (Redis/Valkey)
 - [ ] Rate limiting
@@ -17,6 +14,9 @@
 - [ ] Separate services
 - [ ] Cloud deployment
 - [ ] Link expiration
+- [x] Latency
+- [x] Throughput
+- [x] Error rate
 - [x] Swap out H2 with MySQL
 - [x] Fix `SecureRandom` way of generating short URLs
 
@@ -32,6 +32,62 @@ CREATE TABLE url (
     INDEX idx_unique_short_url (short_url)
 );
 ```
+
+# Project Structure:
+```
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── me/
+│   │   │       └── garvv/
+│   │   │           └── url_shortener/
+│   │   │               ├── Controller/
+│   │   │               │   └── UrlController.java
+│   │   │               ├── DTO/
+│   │   │               │   ├── UrlRedirectionRequestDTO.java
+│   │   │               │   ├── UrlRedirectionResponseDTO.java
+│   │   │               │   ├── UrlShortenRequestDTO.java
+│   │   │               │   └── UrlShortenResponseDTO.java
+│   │   │               ├── exceptions/
+│   │   │               │   ├── GlobalExceptionHandlers.java
+│   │   │               │   ├── RequestTimedOutException.java
+│   │   │               │   └── UrlNotFoundException.java
+│   │   │               ├── Model/
+│   │   │               │   └── Url.java
+│   │   │               ├── Repository/
+│   │   │               │   └── UrlRepository.java
+│   │   │               ├── Service/
+│   │   │               │   ├── UrlService.java
+│   │   │               │   └── UrlServiceImpl.java
+│   │   │               ├── Utils/
+│   │   │               │   ├── Base62.java
+│   │   │               │   ├── SecureRandomNumberGenerator.java
+│   │   │               │   └── UrlUtils.java
+│   │   │               └── UrlShortenerApplication.java
+│   │   └── resources/
+│   │       ├── application-dev.properties
+│   │       ├── application-prod.properties
+│   │       └── application.properties
+│   └── test/
+│       ├── java/
+│       │   └── me/
+│       │       └── garvv/
+│       │           └── url_shortener/
+│       │               ├── Repository/
+│       │               │   └── UrlRepositoryTests.java
+│       │               ├── Service/
+│       │               │   └── UrlServiceTests.java
+│       │               └── UrlShortenerApplicationTests.java
+│       └── resources/
+│           └── application.properties
+├── tests/
+│   ├── performance/
+│   │   └── nano-url-load-test.jmx
+├── pom.xml
+└── README.md
+```
+
+[![GitHubTree](https://img.shields.io/badge/GitHubTree-nano--url-blue?style=flat-square)](https://githubtree.mgks.dev/repo/garvmathur7700/nano-url/main/?ref=badge)
 
 # Metrics
 
@@ -98,7 +154,52 @@ CREATE TABLE url (
 | GET /api/url/{shortUrl} | 125655 | 0 | 0.00% | 19.48 | 0 | 210 | 19.00 | 26.00 | 34.00 | 47.00 | 1047.76 | 196.89 | 166.77 |
 | POST /api/url/shorten | 125685 | 0 | 0.00% | 26.22 | 2 | 222 | 25.00 | 35.00 | 43.00 | 61.00 | 1047.56 | 198.45 | 269.05 |
 
-    - Threads: 60
-    - Ramp-up period: 10 seconds
-    - Duration: 120 seconds
+  - Threads: 60
+  - Ramp-up period: 10 seconds
+  - Duration: 120 seconds
 
+| Label | #Samples | FAIL | Error % | Average | Min | Max | Median | 90th pct | 95th pct | 99th pct | Transactions/s | Received | Sent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Total** | **241994** | **0** | **0.00%** | **28.50** | **0** | **404** | **29.00** | **40.00** | **48.00** | **63.00** | **2016.68** | **380.50** | **419.48** |
+| GET /api/url/{shortUrl} | 120981 | 0 | 0.00% | 24.93 | 0 | 380 | 26.00 | 35.00 | 44.00 | 56.00 | 1010.50 | 189.89 | 160.83 |
+| POST /api/url/shorten | 121013 | 0 | 0.00% | 32.06 | 4 | 404 | 33.00 | 44.90 | 53.00 | 67.00 | 1008.48 | 191.04 | 259.01 |
+
+  - Threads: 70
+  - Ramp-up period: 10 seconds
+  - Duration: 120 seconds
+
+| Label | #Samples | FAIL | Error % | Average | Min | Max | Median | 90th pct | 95th pct | 99th pct | Transactions/s | Received | Sent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Total** | **235594** | **0** | **0.00%** | **34.15** | **0** | **329** | **34.00** | **46.00** | **56.00** | **73.00** | **1963.28** | **370.43** | **408.38** |
+| GET /api/url/{shortUrl} | 117781 | 0 | 0.00% | 30.61 | 0 | 269 | 31.00 | 40.00 | 50.00 | 69.00 | 983.92 | 184.90 | 156.60 |
+| POST /api/url/shorten | 117813 | 0 | 0.00% | 37.69 | 4 | 329 | 37.00 | 49.00 | 60.00 | 78.00 | 981.77 | 185.99 | 252.16 |
+
+  - Threads: 80
+  - Ramp-up period: 10 seconds
+  - Duration: 120 seconds
+
+| Label | #Samples | FAIL | Error % | Average | Min | Max | Median | 90th pct | 95th pct | 99th pct | Transactions/s | Received | Sent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Total** | **238457** | **0** | **0.00%** | **38.57** | **0** | **302** | **39.00** | **55.00** | **70.00** | **94.00** | **1987.19** | **374.94** | **413.35** |
+| GET /api/url/{shortUrl} | 119208 | 0 | 0.00% | 34.87 | 0 | 245 | 36.00 | 47.00 | 62.00 | 83.00 | 995.64 | 187.10 | 158.47 |
+| POST /api/url/shorten | 119249 | 0 | 0.00% | 42.28 | 4 | 302 | 43.00 | 57.00 | 72.00 | 95.00 | 993.77 | 188.26 | 255.23 |
+
+  - Threads: 90
+  - Ramp-up period: 10 seconds
+  - Duration: 120 seconds
+
+| Label | #Samples | FAIL | Error % | Average | Min | Max | Median | 90th pct | 95th pct | 99th pct | Transactions/s | Received | Sent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Total** | **223374** | **0** | **0.00%** | **46.33** | **0** | **421** | **45.00** | **62.00** | **80.00** | **118.00** | **1861.39** | **351.21** | **387.19** |
+| GET /api/url/{shortUrl} | 111665 | 0 | 0.00% | 42.36 | 0 | 328 | 41.00 | 56.00 | 74.00 | 98.00 | 932.92 | 175.32 | 148.49 |
+| POST /api/url/shorten | 111709 | 0 | 0.00% | 50.29 | 4 | 421 | 49.00 | 67.00 | 84.00 | 117.00 | 930.88 | 176.34 | 239.08 |
+
+  - Threads: 100
+  - Ramp-up period: 10 seconds
+  - Duration: 120 seconds
+
+| Label | #Samples | FAIL | Error % | Average | Min | Max | Median | 90th pct | 95th pct | 99th pct | Transactions/s | Received | Sent |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Total** | **218240** | **0** | **0.00%** | **52.69** | **0** | **454** | **55.00** | **90.00** | **104.00** | **142.00** | **1818.05** | **343.03** | **378.17** |
+| GET /api/url/{shortUrl} | 109095 | 0 | 0.00% | 48.63 | 0 | 454 | 47.00 | 78.00 | 89.00 | 123.00 | 911.01 | 171.20 | 145.00 |
+| POST /api/url/shorten | 109145 | 0 | 0.00% | 56.75 | 4 | 401 | 54.00 | 89.00 | 102.00 | 138.00 | 909.23 | 172.24 | 233.52 |
