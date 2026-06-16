@@ -24,9 +24,13 @@ public class UrlServiceImpl implements UrlService {
     @Autowired
     private final SecureRandomNumberGenerator randomNumber;
 
-    public UrlServiceImpl(UrlRepository urlRepository, SecureRandomNumberGenerator randomNumber) {
+    @Autowired
+    private final Base62 base62;
+
+    public UrlServiceImpl(UrlRepository urlRepository, SecureRandomNumberGenerator randomNumber, Base62 base62) {
         this.urlRepository = urlRepository;
         this.randomNumber = randomNumber;
+        this.base62 = base62;
     }
 
     @Transactional
@@ -52,7 +56,7 @@ public class UrlServiceImpl implements UrlService {
         int urlRegenerationCounter = 0;
         int maxTries = 5;
         do {
-            shortUrl = Base62.encode(randomNumber.getRandomLong());
+            shortUrl = base62.encode(randomNumber.getRandomLong());
             urlRegenerationCounter++;
         } while (urlRepository.existsByShortUrl(shortUrl) && urlRegenerationCounter < maxTries);
 
