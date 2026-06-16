@@ -10,6 +10,7 @@ import me.garvv.url_shortener.Utils.SecureRandomNumberGenerator;
 import me.garvv.url_shortener.Utils.UrlUtils;
 import me.garvv.url_shortener.exceptions.RequestTimedOutException;
 import me.garvv.url_shortener.exceptions.UrlNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,10 +18,15 @@ import java.time.LocalDateTime;
 @Service
 public class UrlServiceImpl implements UrlService {
 
+    @Autowired
     private final UrlRepository urlRepository;
 
-    public UrlServiceImpl(UrlRepository urlRepository) {
+    @Autowired
+    private final SecureRandomNumberGenerator randomNumber;
+
+    public UrlServiceImpl(UrlRepository urlRepository, SecureRandomNumberGenerator randomNumber) {
         this.urlRepository = urlRepository;
+        this.randomNumber = randomNumber;
     }
 
     @Transactional
@@ -46,7 +52,7 @@ public class UrlServiceImpl implements UrlService {
         int urlRegenerationCounter = 0;
         int maxTries = 5;
         do {
-            shortUrl = Base62.encode(SecureRandomNumberGenerator.getRandomLong());
+            shortUrl = Base62.encode(randomNumber.getRandomLong());
             urlRegenerationCounter++;
         } while (urlRepository.existsByShortUrl(shortUrl) && urlRegenerationCounter < maxTries);
 
