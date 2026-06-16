@@ -1,13 +1,9 @@
 # Nano URL
 
----
-
 NanoURL is URL shortening project. It takes a long URL and returns a shortened version of it which you can use to redirect 
 to original URL. Built for my amusement.
 
 ## Features
-
----
 
 - Only 6 character URLs
 - Over 56.8 billion URLs possible
@@ -16,13 +12,9 @@ to original URL. Built for my amusement.
 
 ## Prerequisites
 
----
-
 Java 21+, Maven, MySQL, Spring Boot (4.0.6+)
 
 ## Quick Start
-
----
 
 1. Clone this repository:
     ```bash
@@ -46,8 +38,6 @@ Java 21+, Maven, MySQL, Spring Boot (4.0.6+)
 4. Run the application: `mvn spring-boot:run`
 
 # To-Do (Future Plans)
-
----
 
 - [ ] Tests
 - [ ] Caching (Redis/Valkey)
