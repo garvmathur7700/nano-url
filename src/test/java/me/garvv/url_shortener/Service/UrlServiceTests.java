@@ -2,16 +2,21 @@ package me.garvv.url_shortener.Service;
 
 import me.garvv.url_shortener.DTO.UrlRedirectionResponseDTO;
 import me.garvv.url_shortener.DTO.UrlShortenResponseDTO;
+import me.garvv.url_shortener.Model.Url;
 import me.garvv.url_shortener.Repository.UrlRepository;
 import me.garvv.url_shortener.Utils.Base62;
 import me.garvv.url_shortener.Utils.SecureRandomNumberGenerator;
 import me.garvv.url_shortener.exceptions.RequestTimedOutException;
+import me.garvv.url_shortener.exceptions.UrlNotFoundException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.Optional;
+
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -46,6 +51,10 @@ public class UrlServiceTests {
 
         // Assert
         Assertions.assertEquals(expectedResponseDTO, actualResponseDTO);
+
+        // Verify
+        verify(urlRepository, times(1))
+                .save(any(Url.class));
     }
 
     @Test
@@ -120,5 +129,44 @@ public class UrlServiceTests {
         // Verify
         verify(urlRepository, times(3))
                 .existsByShortUrl(existingShortUrl);
+    }
+
+    @Test
+    public void UrlService_ExistingShortUrl_ReturnsUrlRedirectionResponse() {
+        // Arrange
+        String longUrl = "https://www.google.com";
+        String shortUrl = "Abc123";
+
+        when(urlRepository.findLongUrlByShortUrl(shortUrl)).thenReturn(Optional.of(longUrl));
+
+        UrlRedirectionResponseDTO expectedResponseDTO = new UrlRedirectionResponseDTO(shortUrl, longUrl);
+
+        // Act
+        UrlRedirectionResponseDTO actualResponseDTO = urlService.getLongUrl(shortUrl);
+
+        // Assert
+        Assertions.assertEquals(expectedResponseDTO, actualResponseDTO);
+
+        // Verify
+        verify(urlRepository, times(1))
+                .findLongUrlByShortUrl(shortUrl);
+    }
+
+    @Test
+    public void UrlService_NonExistingShortUrl_ThrowsUrlNotFoundException() {
+        // Arrange
+        String shortUrl = "Abc123";
+
+        when(urlRepository.findLongUrlByShortUrl(shortUrl))
+                .thenReturn(Optional.empty());
+
+        // Act & Assert
+        Assertions.assertThrows(
+                UrlNotFoundException.class,
+                () -> urlService.getLongUrl(shortUrl));
+
+        // Verify
+        verify(urlRepository, times(1))
+                .findLongUrlByShortUrl(shortUrl);
     }
 }
