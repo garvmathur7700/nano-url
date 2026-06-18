@@ -37,6 +37,10 @@ Java 21+, Maven, MySQL, Spring Boot (4.0.6+)
 
 4. Run the application: `mvn spring-boot:run`
 
+# Architecture
+
+Currently follows a monolithic architecture. [See the architecture here](docs/architecture.md)
+
 # To-Do (Future Plans)
 
 - [ ] Tests
