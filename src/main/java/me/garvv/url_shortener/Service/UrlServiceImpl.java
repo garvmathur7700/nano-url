@@ -31,7 +31,7 @@ public class UrlServiceImpl implements UrlService {
     }
 
     @Transactional
-    public UrlShortenResponseDTO createNewShortUrl (String longUrl) {
+    public UrlShortenResponseDTO createNewShortUrl(String longUrl) {
         // Step 1: Sanitize 'longUrl'
         String sanitizedLongUrl = UrlUtils.sanitize(longUrl);
 
@@ -40,7 +40,7 @@ public class UrlServiceImpl implements UrlService {
             throw new IllegalArgumentException("Not a valid URL.");
 
         // Step 3: If 'sanitizedLongUrl' already exists in DB
-            // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
+        // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
         if (urlRepository.existsByLongUrl(sanitizedLongUrl)) {
             String existingShortUrl = urlRepository.findShortUrlByLongUrl(sanitizedLongUrl);
             return new UrlShortenResponseDTO(existingShortUrl);
@@ -71,7 +71,7 @@ public class UrlServiceImpl implements UrlService {
     }
 
     @Transactional
-    public UrlRedirectionResponseDTO getLongUrl (String shortUrl) {
+    public UrlRedirectionResponseDTO getLongUrl(String shortUrl) {
         String longUrl = urlRepository
                 .findLongUrlByShortUrl(shortUrl)
                 .orElseThrow(() -> new UrlNotFoundException("URL not found"));
