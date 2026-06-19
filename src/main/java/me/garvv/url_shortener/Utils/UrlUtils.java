@@ -9,9 +9,10 @@ public class UrlUtils {
         if (url == null || url.trim().isEmpty())
             return "";
 
-        // Step 2: If 'url' does not have 'http:// OR https://' as prefix, then add 'https://'
+        // Step 2: Remove any leading or trailing whitespaces from the 'url'
         String cleanUrl = url.trim();
 
+        // Step 2: If 'url' does not have 'http:// OR https://' as prefix, then add 'https://'
         if (!cleanUrl.matches("^(?i)(http|https)://.*$"))
             cleanUrl = "https://" + url;
 
