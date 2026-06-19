@@ -10,3 +10,5 @@ CREATE TABLE url (
     INDEX idx_unique_short_url (short_url)
 );
 ```
+
+![Database Schema](database_schema.svg)
