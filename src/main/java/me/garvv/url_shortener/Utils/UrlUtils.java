@@ -12,10 +12,11 @@ public class UrlUtils {
         // Step 2: Remove any leading or trailing whitespaces from the 'url'
         String cleanUrl = url.trim();
 
-        // Step 2: If 'url' does not have 'http:// OR https://' as prefix, then add 'https://'
+        // Step 3 (1): If 'url' does not have 'http:// OR https://' as prefix, then add 'https://'
         if (!cleanUrl.matches("^(?i)(http|https)://.*$"))
             cleanUrl = "https://" + url;
 
+        // Step 3 (2): If 'url' does not have 'www' as prefix, then add 'https://www.'
         if (!cleanUrl.matches("^(?i)(http|https)://www[.].*$"))
             cleanUrl = cleanUrl.replaceFirst("://", "://www.");
 

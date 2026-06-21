@@ -18,15 +18,19 @@ import java.net.URI;
 
 @Validated
 @RestController
-@RequestMapping("/api/url")
+@RequestMapping("")
 public class UrlController {
 
     @Autowired
     private UrlService urlService;
 
     @PostMapping("/shorten")
-    public ResponseEntity<UrlShortenResponseDTO> createShortUrl(@Valid @RequestBody UrlShortenRequestDTO request) {
-        UrlShortenResponseDTO responseDTO = urlService.createNewShortUrl(request.longUrl());
+    public ResponseEntity<UrlShortenResponseDTO> createShortUrl(
+            @Valid
+            @RequestBody
+            UrlShortenRequestDTO request) {
+        UrlShortenResponseDTO responseDTO = urlService.
+                createNewShortUrl(request.longUrl());
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)
