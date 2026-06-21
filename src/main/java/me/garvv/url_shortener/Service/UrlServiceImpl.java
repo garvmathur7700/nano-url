@@ -11,6 +11,7 @@ import me.garvv.url_shortener.Utils.UrlUtils;
 import me.garvv.url_shortener.exceptions.RequestTimedOutException;
 import me.garvv.url_shortener.exceptions.UrlNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,9 @@ public class UrlServiceImpl implements UrlService {
     private final SecureRandomNumberGenerator randomNumber;
 
     private final Base62 base62;
+
+    @Value("${app.base-url}")
+    private String baseUrl;
 
     public UrlServiceImpl(UrlRepository urlRepository, SecureRandomNumberGenerator randomNumber, Base62 base62) {
         this.urlRepository = urlRepository;
@@ -43,7 +47,7 @@ public class UrlServiceImpl implements UrlService {
         // return 'shortUrl' corresponding to the 'sanitizedLongUrl'
         if (urlRepository.existsByLongUrl(sanitizedLongUrl)) {
             String existingShortUrl = urlRepository.findShortUrlByLongUrl(sanitizedLongUrl);
-            return new UrlShortenResponseDTO(existingShortUrl);
+            return new UrlShortenResponseDTO(existingShortUrl, sanitizedLongUrl);
         }
 
         // Step 4: Generate 'shortUrl' by random integer and encoding
@@ -67,7 +71,10 @@ public class UrlServiceImpl implements UrlService {
         url.setCreatedAt(LocalDateTime.now());
         urlRepository.save(url);
 
-        return new UrlShortenResponseDTO(url.getShortUrl());
+        // Step 6: Create the directable 'shortUrl'
+        String fullShortUrl = baseUrl + "/" + shortUrl;
+
+        return new UrlShortenResponseDTO(fullShortUrl, sanitizedLongUrl);
     }
 
     @Transactional

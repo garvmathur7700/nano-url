@@ -44,7 +44,7 @@ public class UrlServiceTests {
         when(base62.encode(123456L)).thenReturn(generatedShortUrl);
         when(urlRepository.existsByShortUrl(generatedShortUrl)).thenReturn(false);
 
-        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(generatedShortUrl);
+        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(generatedShortUrl, validLongUrl);
 
         // Act
         UrlShortenResponseDTO actualResponseDTO = urlService.createNewShortUrl(validLongUrl);
@@ -77,7 +77,7 @@ public class UrlServiceTests {
         when(urlRepository.existsByLongUrl(validExistingLongUrl)).thenReturn(true);
         when(urlRepository.findShortUrlByLongUrl(validExistingLongUrl)).thenReturn(existingShortUrl);
 
-        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(existingShortUrl);
+        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(existingShortUrl, validExistingLongUrl);
 
         // Act
         UrlShortenResponseDTO actualResponseDTO = urlService.createNewShortUrl(validExistingLongUrl);
@@ -118,7 +118,7 @@ public class UrlServiceTests {
         when(base62.encode(123456L)).thenReturn(existingShortUrl);
         when(urlRepository.existsByShortUrl(existingShortUrl)).thenReturn(true, true, false);
 
-        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(existingShortUrl);
+        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(existingShortUrl, longUrl);
 
         // Act
         UrlShortenResponseDTO actualResponseDTO = urlService.createNewShortUrl(longUrl);

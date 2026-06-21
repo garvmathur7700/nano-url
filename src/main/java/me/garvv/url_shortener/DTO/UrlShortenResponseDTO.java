@@ -5,5 +5,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record UrlShortenResponseDTO(
         @NotBlank(message = "shortUrl is required")
-        String shortUrl
+        String shortUrl,
+        String longUrl
 ) {}
