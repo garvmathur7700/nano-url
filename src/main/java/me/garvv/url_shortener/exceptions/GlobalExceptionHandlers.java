@@ -1,5 +1,6 @@
 package me.garvv.url_shortener.exceptions;
 
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,6 +21,14 @@ public class GlobalExceptionHandlers extends ResponseEntityExceptionHandler {
     public ProblemDetail handleIllegalUrl(IllegalArgumentException ex) {
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
         problemDetail.setTitle("Invalid URL");
+        return problemDetail;
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ProblemDetail handleSmallOrBlankUrl(ConstraintViolationException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, ex.getMessage());
+        problemDetail.setTitle("Invalid URL");
+        problemDetail.setDetail("URL must be 6 characters");
         return problemDetail;
     }
 
