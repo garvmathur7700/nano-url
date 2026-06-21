@@ -30,7 +30,7 @@ public class UrlController {
     }
 
     @GetMapping("/{shortUrl}")
-    public ResponseEntity<UrlRedirectionResponseDTO> getLongUrl(@Valid @PathVariable String shortUrl) {
+    public ResponseEntity<Void> getLongUrl(@Valid @PathVariable String shortUrl) {
         String longUrl = urlService
                 .getLongUrl(shortUrl)
                 .longUrl();
