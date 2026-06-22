@@ -54,9 +54,9 @@ Currently follows a monolithic architecture. [See the architecture here](docs/ar
 - [ ] Separate services
 - [ ] Cloud deployment
 - [ ] Link expiration
-- [x] Tests
-- [x] Latency
-- [x] Throughput
-- [x] Error rate
-- [x] Swap out H2 with MySQL
-- [x] Fix `SecureRandom` way of generating short URLs
+- [x] Tests (22.06.2026)
+- [x] Latency (15.06.2026)
+- [x] Throughput (15.06.2026)
+- [x] Error rate (15.06.2026)
+- [x] Swap out H2 with MySQL (10.06.2026)
+- [x] Fix `SecureRandom` way of generating short URLs (08.06.2026)
