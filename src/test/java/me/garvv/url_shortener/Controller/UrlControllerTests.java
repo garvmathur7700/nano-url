@@ -9,13 +9,16 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.databind.DeserializationFeature;
 import tools.jackson.databind.ObjectMapper;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -34,6 +37,9 @@ public class UrlControllerTests {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Value("${app.base-url}")
+    private String baseUrl;
+
     /**
      * GET `getLongUrl` method tests start here
      */
@@ -48,11 +54,11 @@ public class UrlControllerTests {
         when(urlService.getLongUrl(shortUrl)).thenReturn(responseDTO);
 
         // Act
-        mockMvc.perform(get("/api/url/{shortUrl}", shortUrl))
+        mockMvc.perform(get("/{shortUrl}", shortUrl))
 
         // Assert
-                .andExpect(status().isFound())
-                .andExpect(redirectedUrl(longUrl));
+            .andExpect(status().isFound())
+            .andExpect(redirectedUrl(longUrl));
     }
 
     @Test
@@ -63,10 +69,10 @@ public class UrlControllerTests {
                 .thenThrow(new UrlNotFoundException("URL not found"));
 
         // Act
-        mockMvc.perform(get("/api/url/{shortUrl}", shortUrl))
+        mockMvc.perform(get("/{shortUrl}", shortUrl))
 
         // Assert
-                .andExpect(status().isNotFound());
+            .andExpect(status().isNotFound());
     }
 
     @Test
@@ -75,10 +81,10 @@ public class UrlControllerTests {
         String shortUrl = "abc";
 
         // Act
-        mockMvc.perform(get("/api/url/{shortUrl}", shortUrl))
+        mockMvc.perform(get("/{shortUrl}", shortUrl))
 
-                // Assert
-                .andExpect(status().isBadRequest());
+        // Assert
+            .andExpect(status().isBadRequest());
     }
 
     /***********************************************************/
@@ -98,17 +104,118 @@ public class UrlControllerTests {
         when(urlService.createNewShortUrl(requestDTO.longUrl())).thenReturn(responseDTO);
 
         // Act
-        mockMvc.perform(post("/api/url/shorten")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(requestDTO)))
+        mockMvc.perform(post("/shorten")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(requestDTO)))
 
         // Assert
-                .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.shortUrl").value(shortUrl));
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$.shortUrl").value(shortUrl))
+            .andExpect(jsonPath("$.longUrl").value(longUrl));
     }
 
     @Test
-    public void UrlController_createShortUrl_givenInvalidDto_shouldReturn400() throws Exception {
+    public void UrlController_createShortUrl_givenInvalidFieldName_shouldReturn400() throws Exception {
+        // Arrange
+        String request = """
+                {
+                    "invalidFieldName": "https://validurl.com"
+                }
+                """;
 
+        // Act
+        mockMvc.perform(post("/shorten")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(request))
+
+        // Assert
+            .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void UrlController_createShortUrl_givenEmptyFieldName_shouldReturn400() throws Exception {
+        // Arrange
+        String request = """
+                {
+                    "": "https://validurl.com"
+                }
+                """;
+
+        // Act
+        mockMvc.perform(post("/shorten")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(request))
+
+                // Assert
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void UrlController_createShortUrl_givenWrongCaseFieldName_shouldReturn400() throws Exception {
+        // Arrange
+        String request = """
+                {
+                    "longurl": "https://validurl.com"
+                }
+                """;
+
+        // Act
+        mockMvc.perform(post("/shorten")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(request))
+
+                // Assert
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void UrlController_createShortUrl_givenExtraFields_shouldReturn400() throws Exception {
+        // Arrange
+        String request = """
+                {
+                    "longUrl": "https://validurl.com",
+                    "extraField": "extraValue"
+                }
+                """;
+
+        // Act
+        mockMvc.perform(post("/shorten")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(request))
+
+                // Assert
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void UrlController_createShortUrl_givenNoFields_shouldReturn400() throws Exception {
+        // Arrange
+        String request = "{}";
+
+        // Act
+        mockMvc.perform(post("/shorten")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(request))
+
+                // Assert
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void UrlController_createShortUrl_givenNoValue_shouldReturn400() throws Exception {
+        // Arrange
+        String request = """
+                {
+                    "longUrl": ""
+                }
+                """;
+
+        // Act
+        mockMvc.perform(post("/shorten")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(request))
+
+                // Assert
+                .andExpect(status().isBadRequest());
     }
 }
