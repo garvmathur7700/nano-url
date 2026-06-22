@@ -43,7 +43,6 @@ Currently follows a monolithic architecture. [See the architecture here](docs/ar
 
 # To-Do (Future Plans)
 
-- [ ] Tests
 - [ ] Caching (Redis/Valkey)
 - [ ] Rate limiting
 - [ ] Link analytics
@@ -55,6 +54,7 @@ Currently follows a monolithic architecture. [See the architecture here](docs/ar
 - [ ] Separate services
 - [ ] Cloud deployment
 - [ ] Link expiration
+- [x] Tests
 - [x] Latency
 - [x] Throughput
 - [x] Error rate
