@@ -7,8 +7,6 @@ public class Base62 {
     private static final String CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final int BASE = CHARS.length();
 
-    private Base62() {}
-
     public String encode (long num) {
         if (num < 0)
             throw new IllegalArgumentException("Input has to be greater than zero (0)");
