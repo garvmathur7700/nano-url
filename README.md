@@ -30,9 +30,13 @@ Java 21+, Maven, MySQL, Spring Boot (4.0.6+)
     spring.datasource.username=root // replace with your username
     spring.datasource.password=root // replace with you password
     spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
     spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
     spring.jpa.hibernate.ddl-auto=validate // use validate for prod; update for dev
+
+    server.port=${PORT}
+    spring.mvc.problemdetails.enabled=true
+    spring.jackson.deserialization.fail-on-unknown-properties=true
+    app.base-url=${BASE-URL}
    ```
 
 4. Run the application: `mvn spring-boot:run`
