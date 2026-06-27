@@ -1,7 +1,6 @@
 # Nano URL
 
-NanoURL is URL shortening project. It takes a long URL and returns a shortened version of it which you can use to redirect 
-to original URL. Built for my amusement.
+NanoURL is URL shortening project. It takes a long URL and returns a shortened version of it which you can use to redirect to original URL. Built for my amusement.
 
 ## Features
 
