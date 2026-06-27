@@ -14,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Optional;
 
@@ -33,8 +34,11 @@ public class UrlServiceTests {
     @InjectMocks
     private UrlServiceImpl urlService;
 
+    @Value("${app.base-url")
+    private String baseUrl;
+
     @Test
-    public void UrlService_ValidLongUrl_ReturnsUrlShortenResponse() {
+    public void UrlService_createNewShortUrl_givenValidLongUrl_shouldReturnUrlShortenResponse() {
         // Arrange
         String validLongUrl = "https://www.google.com";
         String generatedShortUrl = "Abc123";
@@ -44,7 +48,9 @@ public class UrlServiceTests {
         when(base62.encode(123456L)).thenReturn(generatedShortUrl);
         when(urlRepository.existsByShortUrl(generatedShortUrl)).thenReturn(false);
 
-        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(generatedShortUrl, validLongUrl);
+        String fullShortUrl = baseUrl + "/" + generatedShortUrl;
+
+        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(fullShortUrl, validLongUrl);
 
         // Act
         UrlShortenResponseDTO actualResponseDTO = urlService.createNewShortUrl(validLongUrl);
@@ -118,7 +124,9 @@ public class UrlServiceTests {
         when(base62.encode(123456L)).thenReturn(existingShortUrl);
         when(urlRepository.existsByShortUrl(existingShortUrl)).thenReturn(true, true, false);
 
-        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(existingShortUrl, longUrl);
+        String fullShortUrl = baseUrl + "/" + existingShortUrl;
+
+        UrlShortenResponseDTO expectedResponseDTO = new UrlShortenResponseDTO(fullShortUrl, longUrl);
 
         // Act
         UrlShortenResponseDTO actualResponseDTO = urlService.createNewShortUrl(longUrl);
@@ -139,7 +147,9 @@ public class UrlServiceTests {
 
         when(urlRepository.findLongUrlByShortUrl(shortUrl)).thenReturn(Optional.of(longUrl));
 
-        UrlRedirectionResponseDTO expectedResponseDTO = new UrlRedirectionResponseDTO(shortUrl, longUrl);
+        String fullShortUrl = baseUrl + "/" + shortUrl;
+
+        UrlRedirectionResponseDTO expectedResponseDTO = new UrlRedirectionResponseDTO(fullShortUrl, longUrl);
 
         // Act
         UrlRedirectionResponseDTO actualResponseDTO = urlService.getLongUrl(shortUrl);

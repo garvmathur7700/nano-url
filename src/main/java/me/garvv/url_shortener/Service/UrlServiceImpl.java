@@ -83,6 +83,9 @@ public class UrlServiceImpl implements UrlService {
                 .findLongUrlByShortUrl(shortUrl)
                 .orElseThrow(() -> new UrlNotFoundException("URL not found"));
 
-        return new UrlRedirectionResponseDTO(shortUrl, longUrl);
+        // Step 6: Create the directable 'shortUrl'
+        String fullShortUrl = baseUrl + "/" + shortUrl;
+
+        return new UrlRedirectionResponseDTO(fullShortUrl, longUrl);
     }
 }
