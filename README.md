@@ -1,6 +1,8 @@
 # Nano URL
 
-NanoURL is URL shortening project. It takes a long URL and returns a shortened version of it which you can use to redirect to original URL. Built for my amusement.
+NanoURL is URL shortening project.
+It takes a long URL and returns a shortened version of it which you can use to redirect to original URL.
+Built for my amusement.
 
 ## Features
 
@@ -27,12 +29,12 @@ Java 21+, Maven, MySQL, Spring Boot (4.0.6+)
 3. Configure the `application.properties` file:
 
    ```
-    spring.datasource.url=jdbc:mysql://localhost:3306/url_shortener // change DB name, if needed
+    spring.datasource.url=jdbc:mysql://localhost:3306/url_shortener
     spring.datasource.username=root // replace with your username
     spring.datasource.password=root // replace with you password
     spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
     spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
-    spring.jpa.hibernate.ddl-auto=validate // use validate for prod; update for dev
+    spring.jpa.hibernate.ddl-auto=validate
    ```
 
 4. Run the application: `mvn spring-boot:run`
